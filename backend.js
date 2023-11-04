@@ -1,18 +1,17 @@
-const {OpenAI} = require("openai");
+const https = require("node:https");
+const fs = require("fs")
+const {main} = require("./openAi.js");
 
-const openai = new OpenAI({
-  apiKey: ""
-});
-async function main(){
-    const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-            {
-                role: "user",
-                content: "Say this is an example"
+https.createServer({}, function(req, res){
+    if(req.method == "GET"){
+        fs.readFile("index.html", {}, function(error, data){
+            if(error == null){
+                res.setHeader("Content-Type", "text/html");
+                res.end(data);
             }
-        ]
-    })
-    console.log(completion.choices[0].message.content);
-}
-main();
+            else{
+                console.error(error);
+            }
+        })
+    }
+}).listen(8000);
