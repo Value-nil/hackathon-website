@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <h1>daily haikyu poem</h1>
-    <button class="miBoton">Haz clic aquí</button>
+    <title>Random Number Generator</title>
     <script>
-        var numbers = {
+         var numbers = {
             1: 'Libros abiertos\n el saber es un tesoro\n estudia con pasión.',
             2: 'Páginas en blanco\n tu mente es un lienzo\n pinta con conocimiento.',
             3: 'Cada palabra cuenta\n cada letra es un paso\n el estudio te guía.',
@@ -36,18 +35,27 @@
         }
 
         window.onkeyup = function(e) {
-            
-            if () {
+            if (e.keyCode == 32) {
                 generateRandomNumber();
             }
         }
+
+        
     </script>
 </head>
 <body>
 
-<button onclick="">Press space for a haikyu poem</button>
-
-<p>Random number: <span id="randomNumber"></span></p>
+<h1>Pulsa espacio para poema haiku</h1>
+<a>
+    <button onclick="doNumber" style="background-color: darkkhaki;color: #000;">click for haiku poem</button>
+</a>
+<p id="tester"> <span id="randomNumber"></span></p>
+<p>Daily haikyu poem: <span id="randomNumber"></span></p>
+<script>
+    function doSomething(){
+       
+    }
+</script>
 
 </body>
 </html>
