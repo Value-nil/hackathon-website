@@ -1,20 +1,21 @@
 const {OpenAI} = require("openai");
 const openai = new OpenAI({
-  apiKey: ""
+  apiKey: "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"
 });
-async function main(){
+async function callAi(request){
+    console.log(request);
     const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
             {
                 role: "user",
-                content: "Say this is an example"
+                content: request
             }
         ]
     })
-    console.log(completion.choices[0].message.content);
+    console.log(completion.choices[0].message.content)
+    return completion.choices[0].message.content;
 }
 
-module.exports = {main};
-
-return main;
+module.exports = {callAi};
+return module.exports;

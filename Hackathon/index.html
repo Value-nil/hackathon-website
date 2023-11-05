@@ -12,13 +12,17 @@
         <div class="messages" id="messages"></div>
         <form class="message-form d-flex justify-content-center align-items-center" id="message-form">
             <input type="text" id="input" placeholder="Escribe que objetivos quieres alanzar">
-            <button type="submit">Enviar</button>
+            <button type="button" id="sendingButton" onclick="console.log('on clicked called');
+            console.log(document.getElementById('input').value)
+            fetch('127.0.0.1', {method: 'post', body: document.getElementById('input').value}).then(function(response){
+                response.text().then(function(text){document.getElementById('response').innerText = text;});
+            }, function(error){console.log(error);});">Enviar</button>
         </form>
         <div class="container d-flex justify-content-between align-items-center mt-3">
             <div class="back-000000 color-white mx-3 h-100">
                 Explicacion general
             </div>
-            <div class="back-000000 color-white mx-3 h-100">
+            <div class="back-000000 color-white mx-3 h-100" id="response">
                 Respuesta (Consejos, tips)
             </div>
         </div>
@@ -27,7 +31,7 @@
         </div>
         
     </div>
-    <script src="script.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
