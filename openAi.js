@@ -1,5 +1,6 @@
 const {OpenAI} = require("openai");
 const openai = new OpenAI({
+    //this key is old and won't work anymore
   apiKey: "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"
 });
 async function callAi(request){
